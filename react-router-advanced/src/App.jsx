@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Link, useMatch } from 'react-ro
 import Profile from './components/Profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
+import BlogPost from './components/BlogPost';
 
 function App() {
   // Getting the current path using `useMatch` for nested routing
@@ -21,6 +22,7 @@ function App() {
           </li>
         </ul>
         <Routes>
+          <Route path="/blog/:id" component={BlogPost} />
           <Route path={`${url}/profile`} element={<Profile />}>
             <Route path="profile-details" element={<ProfileDetails />} />
             <Route path="profile-settings" element={<ProfileSettings />} />
