@@ -4,7 +4,7 @@ import * as Yup from 'yup';
 export default function formikForm() {
 
     const validateSchema = () => {
-        username: Yup.object().required("User Name is required");
+        username: Yup.string().required("User Name is required");
         email: Yup.string().email('invalid Email').required("Email is required");
         Password: Yup.string().password('invalid Password').required("Password is required");
     }
