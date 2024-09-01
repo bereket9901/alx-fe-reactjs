@@ -1,21 +1,23 @@
 import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
+import useAuth from '../hooks/useAuth';
 
-const isAuthenticated = () => {
-    return localStorage.getItem('authToken') !== null;
-};
 
-const ProtectedRoute = ({ component: Component, ...rest }) => (
-    <Route
-        {...rest}
-        element={
-            isAuthenticated() ? (
-                <Component />
-            ) : (
-                <Navigate to="/login" />
-            )
-        }
-    />
-);
+const ProtectedRoute = ({ component: Component, ...rest }) => {
+    const { isAuthenticated } = useAuth();
+    return (
+        <Route
+            {...rest}
+            element={
+                isAuthenticated ? (
+                    <Component />
+                ) : (
+                    <Navigate to="/login" />
+                )
+            }
+        />
+    );
+
+}
 
 export default ProtectedRoute;
