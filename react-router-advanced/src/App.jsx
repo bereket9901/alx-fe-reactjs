@@ -4,6 +4,7 @@ import Profile from './components/Profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
 import BlogPost from './components/BlogPost';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
   // Getting the current path using `useMatch` for nested routing
@@ -27,6 +28,10 @@ function App() {
             <Route path="profile-details" element={<ProfileDetails />} />
             <Route path="profile-settings" element={<ProfileSettings />} />
           </Route>
+
+          <Route path="/login" element={<LoginPage />} />
+          <ProtectedRoute path="/profile" component={Profile} />
+
         </Routes>
       </div>
     </Router>
