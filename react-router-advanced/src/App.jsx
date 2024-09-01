@@ -1,36 +1,34 @@
-import './App.css'
-import { BrowserRouter as Router, Route, Switch, Link, useRouteMatch, Routes } from 'react-router-dom';
+import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link, useMatch } from 'react-router-dom';
 import Profile from './assets/components/Profile';
 import ProfileDetails from './assets/components/ProfileDetails';
 import ProfileSettings from './assets/components/ProfileSettings';
 
 function App() {
-  let { path, url } = useRouteMatch();
+  // Getting the current path using `useMatch` for nested routing
+  const match = useMatch('/profile/*');
+  const url = match ? match.pathnameBase : ''; // Default to empty string if no match
 
   return (
-    <>
-      <ul>
-        <li>
-          <Link to={`${url}/profile-details`}>Profile Details</Link>
-        </li>
-        <li>
-          <Link to={`${url}/profile-settings`}>Profile Settings</Link>
-        </li>
-      </ul>
-      <Switch>
-        <Routes path={path}>
-          <Profile />
+    <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to={`${url}/profile-details`}>Profile Details</Link>
+          </li>
+          <li>
+            <Link to={`${url}/profile-settings`}>Profile Settings</Link>
+          </li>
+        </ul>
+        <Routes>
+          <Route path={`${url}/profile`} element={<Profile />}>
+            <Route path="profile-details" element={<ProfileDetails />} />
+            <Route path="profile-settings" element={<ProfileSettings />} />
+          </Route>
         </Routes>
-        <Route path={`${path}/profile-details`}>
-          <ProfileDetails />
-        </Route>
-        <Route path={`${path}/profile-settings`}>
-          <ProfileSettings />
-        </Route>
-      </Switch>
-
-    </>
-  )
+      </div>
+    </Router>
+  );
 }
 
-export default App
+export default App;
