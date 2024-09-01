@@ -4,9 +4,20 @@ export default function RegistrationForm() {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState("");
+
     const handelSubmit = (e) => {
         e.preventDefault();
         console.log(formData);
+    }
+    if (!username) {
+        setErrors("Username is required.");
+    }
+    if (!email) {
+        setErrors("Email is required.");
+    }
+    if (!password) {
+        setErrors("Password is required.");
     }
     return (
         <>
