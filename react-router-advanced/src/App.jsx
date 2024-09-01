@@ -1,8 +1,8 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes, Link, useMatch } from 'react-router-dom';
-import Profile from './assets/components/Profile';
-import ProfileDetails from './assets/components/ProfileDetails';
-import ProfileSettings from './assets/components/ProfileSettings';
+import Profile from './components/Profile';
+import ProfileDetails from './components/ProfileDetails';
+import ProfileSettings from './components/ProfileSettings';
 
 function App() {
   // Getting the current path using `useMatch` for nested routing
