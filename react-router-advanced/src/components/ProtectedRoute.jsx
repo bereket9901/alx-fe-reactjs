@@ -1,19 +1,21 @@
-import { BrowserRouter as Route, Redirect } from "react-router-dom";
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+
 const isAuthenticated = () => {
     return localStorage.getItem('authToken') !== null;
 };
+
 const ProtectedRoute = ({ component: Component, ...rest }) => (
     <Route
         {...rest}
-        render={props =>
+        element={
             isAuthenticated() ? (
-                // If authenticated, render the component
-                <Component {...props} />
+                <Component />
             ) : (
-                // If not authenticated, redirect to the login page
-                <Redirect to="/login" />
+                <Navigate to="/login" />
             )
         }
     />
 );
+
 export default ProtectedRoute;
