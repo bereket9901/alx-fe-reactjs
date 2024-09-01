@@ -1,5 +1,5 @@
 import './App.css'
-import { BrowserRouter as Router, Route, Switch, Link, useRouteMatch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, useRouteMatch, Routes } from 'react-router-dom';
 import Profile from './assets/components/Profile';
 import ProfileDetails from './assets/components/ProfileDetails';
 import ProfileSettings from './assets/components/ProfileSettings';
@@ -18,9 +18,9 @@ function App() {
         </li>
       </ul>
       <Switch>
-        <Route path={path}>
+        <Routes path={path}>
           <Profile />
-        </Route>
+        </Routes>
         <Route path={`${path}/profile-details`}>
           <ProfileDetails />
         </Route>
