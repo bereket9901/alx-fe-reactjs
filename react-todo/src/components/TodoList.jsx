@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 // Single todo item component
 const TodoItem = ({ todo, toggleTodo, deleteTodo }) => (
