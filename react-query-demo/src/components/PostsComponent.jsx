@@ -5,9 +5,9 @@ const fetchPosts = async () => {
     return result.json();
 }
 export default function PostsComponent() {
-    const { data, error, isLoading } = useQuery('fetchData', fetchPosts);
+    const { data, isError, isLoading } = useQuery('fetchData', fetchPosts);
     if (isLoading) return <div>Loading...</div>;
-    if (error) return <div>Error: {error.message}</div>;
+    if (isError) return <div>Error: {isError.message}</div>;
     return (
         <>
             <h1>Posts Component</h1>
