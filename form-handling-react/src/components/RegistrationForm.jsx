@@ -15,7 +15,7 @@ export default function RegistrationForm() {
         <>
             <h1>Registration Form</h1>
             <form onSubmit={handelSubmit}>
-                <input type='text' name='userName' value={formData.userName} onChange={handelChange}>User Name</input>
+                <input type='text' name='username' value={formData.userName} onChange={handelChange}>User Name</input>
                 <input type='email' name='email' value={formData.email} onChange={handelChange}>Email</input>
                 <input type='password' name='password' value={formData.password} onChange={handelChange}>Password</input>
                 <button type="submit">Submit</button>
