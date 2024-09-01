@@ -20,6 +20,7 @@ export default function PostsComponent() {
         <>
             <h1>Posts Component</h1>
             {data.map(item => (<div key={item.id}>{item.title}</div>))}
+            <button onClick={fetchPosts}>Fetch</button>
         </>
     )
 }
