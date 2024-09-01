@@ -14,6 +14,7 @@ export default function PostsComponent() {
         refetchOnWindowFocus: true, // Refetch data when the window is refocused
         keepPreviousData: true,     // Keep previous data while fetching new data
     });
+    
     if (isLoading) return <div>Loading...</div>;
     if (isError) return <div>Error: {isError.message}</div>;
     return (
