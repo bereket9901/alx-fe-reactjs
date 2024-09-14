@@ -10,7 +10,7 @@ export default function HomePage() {
 
     return (<>
         <h1>Recipe</h1>
-        <div className='grid md:grid-cols-2 sm:grid-cols-1'>
+        <div className='grid md:grid-cols-3 sm:grid-cols-1'>
             {recipeData && recipeData.map((recipe, index) => {
                 return (
                     <div className='bg-slate-800 px-1 py-5 m-10 w-72 shadow-blue-900 shadow-lg rounded-3xl hover:shadow-2xl hover:shadow-blue-500' key={index}>
