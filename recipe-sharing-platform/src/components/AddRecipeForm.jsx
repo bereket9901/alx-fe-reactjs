@@ -11,10 +11,10 @@ const AddRecipeForm = () => {
 
   // Handle input changes
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value } = e.target; // Destructure name and value from e.target
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: value, // Use the name attribute to update the corresponding state
     });
   };
 
