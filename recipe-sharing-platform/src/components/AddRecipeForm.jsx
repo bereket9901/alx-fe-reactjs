@@ -11,7 +11,9 @@ const AddRecipeForm = () => {
 
   // Handle input changes
   const handleChange = (e) => {
-    const { name, value } = e.target; // Destructure name and value from e.target
+    const  name = e.target.name;
+    const value = e.target.value;
+
     setFormData({
       ...formData,
       [name]: value, // Use the name attribute to update the corresponding state
