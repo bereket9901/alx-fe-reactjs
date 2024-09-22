@@ -7,12 +7,22 @@ export const fetchAdvancedSearchData = async ({ username, location, minRepos }, 
   const searchQuery = query.join('+');
 
   try {
-    const response = await axios.get(`https://api.github.com/search/users?q=${searchQuery}&page=${page}`);
+    const response = await axios.get(`${GITHUB_SEARCH_API_URL}?q=${searchQuery}&page=${page}`);
     return {
       data: response.data,
       headers: response.headers,
     };
   } catch (error) {
     throw new Error('Failed to fetch search data');
+  }
+};
+const GITHUB_API_URL = 'https://api.github.com/users';
+
+export const fetchUserData = async (username) => {
+  try {
+    const response = await axios.get(`${GITHUB_API_URL}/${username}`);
+    return response.data;
+  } catch (error) {
+    throw new Error('Failed to fetch user data');
   }
 };
