@@ -2,7 +2,6 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import Components from '../src/components'
 import Home from '../src/components/Home';
-import About from '../src/components/About';
 
 const App = () => {
   return (
@@ -21,7 +20,6 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </Router>
