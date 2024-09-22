@@ -1,6 +1,13 @@
-import axios from 'axios'
-const fetchUserData=()=>{
-    return axios.get("https://api.github.com/users/{username}")
-}
+import axios from 'axios';
 
-export default fetchUserData;
+const GITHUB_API_URL = 'https://api.github.com/users';
+
+export const fetchGitHubUser = async (username) => {
+  const apiKey = process.env.REACT_APP_GITHUB_API_KEY;
+  const response = await axios.get(`${GITHUB_API_URL}/${username}`, {
+    headers: {
+      Authorization: `Bearer ${apiKey}`
+    }
+  });
+  return response.data;
+};
