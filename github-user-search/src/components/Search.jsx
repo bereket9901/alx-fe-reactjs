@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchAdvancedSearchData } from '../services/githubService';
+import { fetchAdvancedSearchData, fetchUserData } from '../services/githubService';
 
 const Search = () => {
   const [formData, setFormData] = useState({
@@ -23,6 +23,7 @@ const Search = () => {
 
     try {
       const data = await fetchAdvancedSearchData(formData);
+      const otherData= await fetchUserData(username);
       setSearchResults(data.items);
     } catch (err) {
       setError(true);
