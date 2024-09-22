@@ -47,7 +47,8 @@ const Search = () => {
       {userData && (
         <div className="user-info">
           <img src={userData.avatar_url} alt={userData.name} className="avatar" />
-          <h2>{userData.name}</h2>
+          <h2>{userData.name || userData.login}</h2> {/* Display name or login if name is not available */}
+          <p>Username: {userData.login}</p> {/* Display login */}
           <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
             View GitHub Profile
           </a>
