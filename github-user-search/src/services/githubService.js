@@ -7,7 +7,7 @@ export const fetchAdvancedSearchData = async ({ username, location, minRepos }, 
   const searchQuery = query.join('+');
 
   try {
-    const response = await axios.get(`${GITHUB_SEARCH_API_URL}?q=${searchQuery}&page=${page}`);
+    const response = await axios.get(`https://api.github.com/search/users?q=${searchQuery}&page=${page}`);
     return {
       data: response.data,
       headers: response.headers,
